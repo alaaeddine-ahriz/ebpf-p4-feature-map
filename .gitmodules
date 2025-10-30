@@ -1,0 +1,3 @@
+[submodule "p4cherry"]
+	path = p4cherry
+	url = https://github.com/kaist-plrg/p4cherry
