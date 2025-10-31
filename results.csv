@@ -1,0 +1,36 @@
+feature,grammar,parse,typecheck,parse_error,typecheck_error
+assign_simple,assignmentOrMethodCallStatement,PASS,PASS,"",""
+assign_to_var,assignmentOrMethodCallStatement,PASS,PASS,"",""
+assign_add,assignmentOrMethodCallStatement (expanded +=),PASS,PASS,"",""
+assign_sub,assignmentOrMethodCallStatement (expanded -=),PASS,PASS,"",""
+assign_mul,assignmentOrMethodCallStatement (expanded *=),PASS,PASS,"",""
+assign_div,assignmentOrMethodCallStatement (icounter div via int<16>),PASS,FAIL,"","Error: File output/test_assign_div.p4, line 22, characters 43-57
+(reduce_senums_binary) cannot coerce types int<16> and int<16>"
+assign_mod,assignmentOrMethodCallStatement (icounter mod via int<16>),PASS,FAIL,"","Error: File output/test_assign_mod.p4, line 22, characters 43-57
+(reduce_senums_binary) cannot coerce types int<16> and int<16>"
+assign_shl,assignmentOrMethodCallStatement (expanded <<=),PASS,PASS,"",""
+assign_shr,assignmentOrMethodCallStatement (expanded >>=),PASS,PASS,"",""
+assign_and,assignmentOrMethodCallStatement (expanded &=),PASS,PASS,"",""
+assign_or,assignmentOrMethodCallStatement (expanded |=),PASS,PASS,"",""
+assign_xor,assignmentOrMethodCallStatement (expanded ^=),PASS,PASS,"",""
+if_simple,conditionalStatement,PASS,PASS,"",""
+if_else,conditionalStatement,PASS,PASS,"",""
+if_nested,conditionalStatement,PASS,PASS,"",""
+empty,emptyStatement,PASS,PASS,"",""
+block_simple,blockStatement,PASS,PASS,"",""
+block_nested,blockStatement,PASS,PASS,"",""
+exit,exitStatement,PASS,PASS,"",""
+return_void,returnStatement,PASS,PASS,"",""
+switch_simple,switchStatement,PASS,PASS,"",""
+switch_break,switchStatement (no break),PASS,PASS,"",""
+switch_fallthrough,switchStatement (fallthrough),PASS,PASS,"",""
+for_simple,forStatement,FAIL,FAIL,"Error: File output/test_for_simple.p4, line 22, characters 13-16
+parser error","SKIPPED (parse failed)"
+for_with_body,forStatement (with body),FAIL,FAIL,"Error: File output/test_for_with_body.p4, line 22, characters 13-16
+parser error","SKIPPED (parse failed)"
+for_range,forStatement (range),FAIL,FAIL,"Error: File output/test_for_range.p4, line 22, characters 13-16
+parser error","SKIPPED (parse failed)"
+break,breakStatement,FAIL,FAIL,"Error: File output/test_break.p4, line 22, characters 13-16
+parser error","SKIPPED (parse failed)"
+continue,continueStatement,FAIL,FAIL,"Error: File output/test_continue.p4, line 22, characters 13-16
+parser error","SKIPPED (parse failed)"

@@ -89,3 +89,49 @@ I think for now, using hardcoded strings would be a good starting point.
 But after we have the basic framework set up, we can consider using a proper P4 AST to generate more complex statements.
 Take a look at the [P4 AST in OCaml](https://github.com/kaist-plrg/p4cherry/blob/main/p4/lib/el/ast.ml).
 We can re-implement this in Python, for this simple task LLMs will do fine.
+
+## What’s implemented (2025-10-31)
+
+- Minimal Python fuzzer under `fuzzer/` that:
+  - Generates P4 programs from a base eBPF template (with a hole in `apply`).
+  - Injects statement features (assignments, if/else, blocks, switch, loops, etc.).
+  - Runs `p4cherry parse` and `p4cherry typecheck` and collects results.
+  - Prints a table and writes `results.csv`.
+- Robust p4cherry invocation:
+  - Uses include dir `p4cherry/p4/testdata/arch`.
+  - Runs with project-root cwd and relatve paths (avoids spaces issues).
+  - Treats stderr messages as failuer even if exit code is 0.
+
+## How to run the fuzzer
+
+1) Build p4cherry (from `p4cherry/README.md`):
+```
+opam switch create 5.1.0
+eval $(opam env)
+opam install dune bignum menhir core core_unix bisect_ppx
+cd p4cherry && make build && cd ..
+```
+
+2) Run the fuzzer:
+```
+python3 -B fuzzer/fuzzer.py
+```
+
+3) Where to look:
+- Generated programs: `output/`
+- CSV summary: `results.csv`
+- Detailed log : `ERROR_LOG.md`
+
+## Quick recap: current unsupported items (p4cherry on eBPF)
+
+- Division and modulo: FAIL (even on `int<N>`). Use bitwise stand-ins for now:
+  - div by 2 → `counter >> 1`
+  - mod 2 → `counter & 1`
+- Loops (`for`), and `break` / `continue` inside loops: parser errors.
+- `switch` with `break` inside case blocks: parser error. Use fallthrough labels instead.
+
+Supported and passing:
+- Assignments (incl. expanded compound forms), if/else (incl. nested), empty `;`, blocks, exit, return.
+- `switch` without `break` (including fallthrough labels).
+
+Note: We keep the unsupported constructs in the suite so the CSV documents p4cherry’s current behavior. We will later cross-check with `p4c` (SpecTec-correctness baseline).

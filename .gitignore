@@ -1,2 +1,5 @@
 # MACOS
 .DS_STORE
+
+/p4cherry
+/p4-spec
