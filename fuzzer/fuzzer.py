@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 import config
-from features import STATEMENT_FEATURES
+from features import DECLARATION_FEATURES, STATEMENT_FEATURES
 
 
 def _has_error(text: str) -> bool:
@@ -20,7 +20,6 @@ def _has_error(text: str) -> bool:
         or "parser error" in lowered
         or "type error" in lowered
     )
-
 
 def run_p4cherry(p4_file: Path, command: str) -> tuple[bool, str]:
     """Run p4cherry command and return (success, output)."""
@@ -52,6 +51,34 @@ def run_p4cherry(p4_file: Path, command: str) -> tuple[bool, str]:
     except Exception as e:
         return (False, str(e))
 
+def run(name: str, feature: dict[str, str],
+        output_file: Path, results: list[dict[str, str]]) -> None:
+    # Run p4cherry parse
+    parse_ok, parse_msg = run_p4cherry(output_file, "parse")
+
+    # Run p4cherry typecheck (only if parse succeeded)
+    if parse_ok:
+        typecheck_ok, typecheck_msg = run_p4cherry(output_file, "typecheck")
+    else:
+        typecheck_ok, typecheck_msg = False, "SKIPPED (parse failed)"
+
+    # Store result
+    results.append({
+        "name": name,
+        "grammar": feature["grammar"],
+        "parse": "PASS" if parse_ok else "FAIL",
+        "typecheck": "PASS" if typecheck_ok else "FAIL",
+        "parse_msg": parse_msg[:200] if not parse_ok else "",
+        "typecheck_msg": typecheck_msg[:200] if not typecheck_ok else "",
+    })
+
+    # Print quick status
+    if parse_ok and typecheck_ok:
+        print("\u2713")
+    elif not parse_ok:
+        print("\u2717 (parse)")
+    else:
+        print("\u2717 (typecheck)")
 
 def main() -> None:
     """Run the fuzzer."""
@@ -66,43 +93,35 @@ def main() -> None:
 
     results: list[dict[str, str]] = []
 
-    for i, (name, feature) in enumerate(STATEMENT_FEATURES.items(), 1):
-        print(f"[{i}/{len(STATEMENT_FEATURES)}] Testing {name}...", end=" ")
+    for i, (name, feature) in enumerate(DECLARATION_FEATURES.items(), 1):
+        print(f"[{i}/{len(DECLARATION_FEATURES)}] Testing {name}...", end=" ")
 
         # Generate P4 code
-        p4_code = config.TEMPLATE.replace("/* HOLE */", feature["code"]) 
+        p4_code = config.DECLARATION_TEMPLATE.replace("/* DEF */", feature["def"]) 
+        p4_code = p4_code.replace("/* USE_P */", feature["use_p"])
+        p4_code = p4_code.replace("/* USE_C */", feature["use_c"])
 
         # Save to file
         output_file = config.OUTPUT_DIR / f"test_{name}.p4"
         with open(output_file, "w") as f:
             f.write(p4_code)
+        
+        # Run test
+        run(name, feature, output_file, results)
 
-        # Run p4cherry parse
-        parse_ok, parse_msg = run_p4cherry(output_file, "parse")
+    for i, (name, feature) in enumerate(STATEMENT_FEATURES.items(), 1):
+        print(f"[{i}/{len(STATEMENT_FEATURES)}] Testing {name}...", end=" ")
 
-        # Run p4cherry typecheck (only if parse succeeded)
-        if parse_ok:
-            typecheck_ok, typecheck_msg = run_p4cherry(output_file, "typecheck")
-        else:
-            typecheck_ok, typecheck_msg = False, "SKIPPED (parse failed)"
+        # Generate P4 code
+        p4_code = config.STATEMENT_TEMPLATE.replace("/* HOLE */", feature["code"]) 
 
-        # Store result
-        results.append({
-            "name": name,
-            "grammar": feature["grammar"],
-            "parse": "PASS" if parse_ok else "FAIL",
-            "typecheck": "PASS" if typecheck_ok else "FAIL",
-            "parse_msg": parse_msg[:200] if not parse_ok else "",
-            "typecheck_msg": typecheck_msg[:200] if not typecheck_ok else "",
-        })
-
-        # Print quick status
-        if parse_ok and typecheck_ok:
-            print("\u2713")
-        elif not parse_ok:
-            print("\u2717 (parse)")
-        else:
-            print("\u2717 (typecheck)")
+        # Save to file
+        output_file = config.OUTPUT_DIR / f"test_{name}.p4"
+        with open(output_file, "w") as f:
+            f.write(p4_code)
+        
+        # Run test
+        run(name, feature, output_file, results)
 
     # Print table
     print("\n" + "=" * 80)

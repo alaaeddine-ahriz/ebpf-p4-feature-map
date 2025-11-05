@@ -3,8 +3,12 @@
 
 struct Headers_t {}
 
+struct S_t { bit<8> a; bit<16> b; }
+
 parser prs(packet_in p, out Headers_t headers) {
     state start {
+        bit<8> tmp = 0;
+        S_t s; s.a = 8w1; s.b = 16w256;
         transition accept;
     }
 }
@@ -16,10 +20,11 @@ control pipe(inout Headers_t headers, out bool pass) {
 
     apply {
         bool flag = true;
+        bit<8> tmp = 0;
         bit<8> counter = 0;
         int<8> icounter = 0;
         bit<16> value = 16w100;
-        counter = 8w42;
+        S_t s; s.a = 8w2; s.b = 16w512;
         Reject(flag);
     }
 }

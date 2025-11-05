@@ -19,7 +19,7 @@ control pipe(inout Headers_t headers, out bool pass) {
         bit<8> counter = 0;
         int<8> icounter = 0;
         bit<16> value = 16w100;
-        counter = counter + 8w1;
+        counter += counter + 8w1;
         Reject(flag);
     }
 }

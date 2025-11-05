@@ -3,8 +3,16 @@
 
 struct Headers_t {}
 
+
+            header H1_t<T> { T f1; }
+            header H2_t<U> { U f2; }
+            header_union HU_t<T, U> { H1_t<T> h1; H2_t<U> h2; }
+        
+
 parser prs(packet_in p, out Headers_t headers) {
     state start {
+        bit<8> tmp = 0;
+        HU_t<bit<8>, bit<16>> hu; hu.h1.f1 = 8w1;
         transition accept;
     }
 }
@@ -16,10 +24,11 @@ control pipe(inout Headers_t headers, out bool pass) {
 
     apply {
         bool flag = true;
+        bit<8> tmp = 0;
         bit<8> counter = 0;
         int<8> icounter = 0;
         bit<16> value = 16w100;
-        counter = 8w42;
+        HU_t<bit<8>, bit<16>> hu; hu.h2.f2 = 16w256;
         Reject(flag);
     }
 }
