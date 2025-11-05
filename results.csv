@@ -1,55 +1,90 @@
-feature,grammar,parse,typecheck,parse_error,typecheck_error
-const_simple,constantDeclaration,PASS,PASS,"",""
-action_simple,actionDeclaration,PASS,PASS,"",""
-parser_simple,parserDeclaration,PASS,PASS,"",""
-control_simple,controlDeclaration,PASS,PASS,"",""
-header_monomorphic,headerTypeDeclaration (monomorphic),PASS,PASS,"",""
-header_polymorphic,headerTypeDeclaration (polymorphic),PASS,PASS,"",""
-header_union_monomorphic,headerUnionTypeDeclaration (monomorphic),PASS,PASS,"",""
-header_union_polymorphic,headerUnionTypeDeclaration (polymorphic),PASS,PASS,"",""
-struct_monomorphic,structTypeDeclaration (monomorphic),PASS,PASS,"",""
-struct_polymorphic,structTypeDeclaration (polymorphic),PASS,PASS,"",""
-enum_non_serializable,enumTypeDeclaration,PASS,PASS,"",""
-enum_serializable,enumTypeDeclaration (serializable),PASS,PASS,"",""
-typedef_alias,typedefDeclaration (alias),PASS,PASS,"",""
-typedef_derived_header,typedefDeclaration (derived header),PASS,PASS,"",""
-typedef_derived_header_union,typedefDeclaration (derived header union),PASS,PASS,"",""
-typedef_derived_struct,typedefDeclaration (derived struct),PASS,PASS,"",""
-typedef_derived_enum,typedefDeclaration (derived enum),PASS,PASS,"",""
-typedef_new,typedefDeclaration (new type),PASS,PASS,"",""
-error_simple,errorDeclaration,PASS,PASS,"",""
-function_simple,functionDeclaration,PASS,PASS,"",""
-assign_simple,assignmentOrMethodCallStatement,PASS,PASS,"",""
-assign_add,assignmentOrMethodCallStatement (expanded +=),FAIL,FAIL,"Error: File output/test_assign_add.p4, line 22, characters 16-17
-parser error","SKIPPED (parse failed)"
-assign_sub,assignmentOrMethodCallStatement (expanded -=),PASS,PASS,"",""
-assign_mul,assignmentOrMethodCallStatement (expanded *=),PASS,PASS,"",""
-assign_div,assignmentOrMethodCallStatement (icounter div via int<16>),PASS,FAIL,"","Error: File output/test_assign_div.p4, line 22, characters 43-57
-(reduce_senums_binary) cannot coerce types int<16> and int<16>"
-assign_mod,assignmentOrMethodCallStatement (icounter mod via int<16>),PASS,FAIL,"","Error: File output/test_assign_mod.p4, line 22, characters 43-57
-(reduce_senums_binary) cannot coerce types int<16> and int<16>"
-assign_shl,assignmentOrMethodCallStatement (expanded <<=),PASS,PASS,"",""
-assign_shr,assignmentOrMethodCallStatement (expanded >>=),PASS,PASS,"",""
-assign_and,assignmentOrMethodCallStatement (expanded &=),PASS,PASS,"",""
-assign_or,assignmentOrMethodCallStatement (expanded |=),PASS,PASS,"",""
-assign_xor,assignmentOrMethodCallStatement (expanded ^=),PASS,PASS,"",""
-if_simple,conditionalStatement,PASS,PASS,"",""
-if_else,conditionalStatement,PASS,PASS,"",""
-if_nested,conditionalStatement,PASS,PASS,"",""
-empty,emptyStatement,PASS,PASS,"",""
-block_simple,blockStatement,PASS,PASS,"",""
-block_nested,blockStatement,PASS,PASS,"",""
-exit,exitStatement,PASS,PASS,"",""
-return_void,returnStatement,PASS,PASS,"",""
-switch_simple,switchStatement,PASS,PASS,"",""
-switch_fallthrough,switchStatement (fallthrough),PASS,PASS,"",""
-for_simple,forStatement,FAIL,FAIL,"Error: File output/test_for_simple.p4, line 22, characters 13-16
-parser error","SKIPPED (parse failed)"
-for_with_body,forStatement (with body),FAIL,FAIL,"Error: File output/test_for_with_body.p4, line 22, characters 13-16
-parser error","SKIPPED (parse failed)"
-for_range,forStatement (range),FAIL,FAIL,"Error: File output/test_for_range.p4, line 22, characters 13-16
-parser error","SKIPPED (parse failed)"
-break,breakStatement,FAIL,FAIL,"Error: File output/test_break.p4, line 22, characters 13-16
-parser error","SKIPPED (parse failed)"
-continue,continueStatement,FAIL,FAIL,"Error: File output/test_continue.p4, line 22, characters 13-16
-parser error","SKIPPED (parse failed)"
+feature,grammar,parse,typecheck,compile,parse_error,typecheck_error,compile_error
+const_simple,constantDeclaration,PASS,PASS,PASS,,,
+action_simple,actionDeclaration,PASS,PASS,PASS,,,
+parser_simple,parserDeclaration,PASS,PASS,PASS,,,
+control_simple,controlDeclaration,PASS,PASS,PASS,,,
+header_monomorphic,headerTypeDeclaration (monomorphic),PASS,PASS,FAIL,,,output/test_header_monomorphic.p4(11): [--Wwarn=invalid_header] warning: accessing a field of an invalid header h
+        H_t h; h.field1 = 8w1; h.field2 = 16w256;
+               ^
+output/test_header_
+header_polymorphic,headerTypeDeclaration (polymorphic),PASS,PASS,FAIL,,,output/test_header_polymorphic.p4(11): [--Wwarn=invalid_header] warning: accessing a field of an invalid header h
+        H_t<bit<8>, bit<16>> h; h.field1 = 8w1; h.field2 = 16w256;
+                   
+header_union_monomorphic,headerUnionTypeDeclaration (monomorphic),PASS,PASS,FAIL,,,output/test_header_union_monomorphic.p4(15): [--Wwarn=invalid_header] warning: accessing a field of an invalid header hu.h1
+        HU_t hu; hu.h1.f1 = 8w1;
+                 ^^^^^
+output/test_header_u
+header_union_polymorphic,headerUnionTypeDeclaration (polymorphic),PASS,PASS,FAIL,,,output/test_header_union_polymorphic.p4(15): [--Wwarn=invalid_header] warning: accessing a field of an invalid header hu.h1
+        HU_t<bit<8>, bit<16>> hu; hu.h1.f1 = 8w1;
+                          
+struct_monomorphic,structTypeDeclaration (monomorphic),PASS,PASS,PASS,,,
+struct_polymorphic,structTypeDeclaration (polymorphic),PASS,PASS,FAIL,,,output/test_struct_polymorphic.p4(6): [--Werror=target-error] error: Type T not supported
+struct S_t<T, U> { T a; U b; }
+           ^
+In file: /home/p4c/lib/crash.cpp:299
+Compiler Bug: Exiting with SI
+enum_non_serializable,enumTypeDeclaration,PASS,PASS,PASS,,,
+enum_serializable,enumTypeDeclaration (serializable),PASS,PASS,PASS,,,
+typedef_alias,typedefDeclaration (alias),PASS,PASS,PASS,,,
+typedef_derived_header,typedefDeclaration (derived header),PASS,PASS,FAIL,,,output/test_typedef_derived_header.p4(11): [--Wwarn=invalid_header] warning: accessing a field of an invalid header h
+        MyH_t h; h.field1 = 8w1;
+                 ^
+output/test_typedef_derived_he
+typedef_derived_header_union,typedefDeclaration (derived header union),PASS,PASS,FAIL,,,output/test_typedef_derived_header_union.p4(15): [--Wwarn=invalid_header] warning: accessing a field of an invalid header hu.h1
+        MyHU_t hu; hu.h1.f1 = 8w1;
+                   ^^^^^
+output/test_
+typedef_derived_struct,typedefDeclaration (derived struct),PASS,PASS,PASS,,,
+typedef_derived_enum,typedefDeclaration (derived enum),PASS,PASS,FAIL,,,In file: /home/p4c/build/ir/ir-generated.cpp:3016
+Compiler Bug: /home/p4c/build/ir/ir-generated.cpp:3016: Null type
+typedef_new,typedefDeclaration (new type),PASS,PASS,PASS,,,
+error_simple,errorDeclaration,PASS,PASS,PASS,,,
+function_simple,functionDeclaration,PASS,PASS,PASS,,,
+assign_simple,assignmentOrMethodCallStatement,PASS,PASS,PASS,,,
+assign_add,assignmentOrMethodCallStatement (expanded +=),FAIL,FAIL,PASS,Error: File output/test_assign_add.p4, line 22, characters 16-17
+parser error,SKIPPED (parse failed),
+assign_sub,assignmentOrMethodCallStatement (expanded -=),PASS,PASS,PASS,,,
+assign_mul,assignmentOrMethodCallStatement (expanded *=),PASS,PASS,PASS,,,
+assign_div,assignmentOrMethodCallStatement (icounter div via int<16>),PASS,FAIL,FAIL,,Error: File output/test_assign_div.p4, line 22, characters 43-57
+(reduce_senums_binary) cannot coerce types int<16> and int<16>,output/test_assign_div.p4(22): [--Werror=type-error] error: t / 2: Cannot operate on signed values
+        int<16> t = (int<16>)icounter; t = t / (int<16>)2; icounter = (int<8>)t;
+                    
+assign_mod,assignmentOrMethodCallStatement (icounter mod via int<16>),PASS,FAIL,FAIL,,Error: File output/test_assign_mod.p4, line 22, characters 43-57
+(reduce_senums_binary) cannot coerce types int<16> and int<16>,output/test_assign_mod.p4(22): [--Werror=type-error] error: t % 2: Cannot operate on signed values
+        int<16> t = (int<16>)icounter; t = t % (int<16>)2; icounter = (int<8>)t;
+                    
+assign_shl,assignmentOrMethodCallStatement (expanded <<=),PASS,PASS,PASS,,,
+assign_shr,assignmentOrMethodCallStatement (expanded >>=),PASS,PASS,PASS,,,
+assign_and,assignmentOrMethodCallStatement (expanded &=),PASS,PASS,PASS,,,
+assign_or,assignmentOrMethodCallStatement (expanded |=),PASS,PASS,PASS,,,
+assign_xor,assignmentOrMethodCallStatement (expanded ^=),PASS,PASS,PASS,,,
+if_simple,conditionalStatement,PASS,PASS,PASS,,,
+if_else,conditionalStatement,PASS,PASS,PASS,,,
+if_nested,conditionalStatement,PASS,PASS,PASS,,,
+empty,emptyStatement,PASS,PASS,PASS,,,
+block_simple,blockStatement,PASS,PASS,PASS,,,
+block_nested,blockStatement,PASS,PASS,PASS,,,
+exit,exitStatement,PASS,PASS,FAIL,,,output/test_exit.p4(12): [--Wwarn=uninitialized_out_param] warning: out parameter 'pass' may be uninitialized when 'pipe' terminates
+control pipe(inout Headers_t headers, out bool pass) {
+            
+return_void,returnStatement,PASS,PASS,FAIL,,,output/test_return_void.p4(12): [--Wwarn=uninitialized_out_param] warning: out parameter 'pass' may be uninitialized when 'pipe' terminates
+control pipe(inout Headers_t headers, out bool pass) {
+     
+switch_simple,switchStatement,PASS,PASS,FAIL,,,In file: /home/p4c/backends/ebpf/ebpfControl.cpp:446
+Compiler Bug: output/test_switch_simple.p4(22): counter_0/counter;: Unexpected expression in switch statement
+        switch (counter) { 8w0: { } d
+switch_fallthrough,switchStatement (fallthrough),PASS,PASS,FAIL,,,In file: /home/p4c/backends/ebpf/ebpfControl.cpp:446
+Compiler Bug: output/test_switch_fallthrough.p4(22): counter_0/counter;: Unexpected expression in switch statement
+        switch (counter) { 8w0: 
+for_simple,forStatement,FAIL,FAIL,PASS,Error: File output/test_for_simple.p4, line 22, characters 13-16
+parser error,SKIPPED (parse failed),
+for_with_body,forStatement (with body),FAIL,FAIL,PASS,Error: File output/test_for_with_body.p4, line 22, characters 13-16
+parser error,SKIPPED (parse failed),
+for_range,forStatement (range),FAIL,FAIL,FAIL,Error: File output/test_for_range.p4, line 22, characters 13-16
+parser error,SKIPPED (parse failed),output/test_for_range.p4(22): [--Werror=unsupported] error: 0 .. 10: not yet implemented
+        for (bit<8> i in 0..10) { }
+                         ^^^^^
+break,breakStatement,FAIL,FAIL,PASS,Error: File output/test_break.p4, line 22, characters 13-16
+parser error,SKIPPED (parse failed),
+continue,continueStatement,FAIL,FAIL,PASS,Error: File output/test_continue.p4, line 22, characters 13-16
+parser error,SKIPPED (parse failed),

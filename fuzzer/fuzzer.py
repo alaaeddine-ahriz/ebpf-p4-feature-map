@@ -9,7 +9,7 @@ from pathlib import Path
 
 import config
 from features import DECLARATION_FEATURES, STATEMENT_FEATURES
-
+from typing import List, Dict, Tuple
 
 def _has_error(text: str) -> bool:
     if not text:
@@ -21,7 +21,7 @@ def _has_error(text: str) -> bool:
         or "type error" in lowered
     )
 
-def run_p4c(p4_file: Path) -> tuple[bool, str]:
+def run_p4c(p4_file: Path) -> Tuple[bool, str]:
     """Run p4c-ebpf compiler and return (success, output)."""
     try:
         # Use project root as cwd and pass relative paths to avoid spaces in absolute paths
@@ -50,7 +50,7 @@ def run_p4c(p4_file: Path) -> tuple[bool, str]:
     except Exception as e:
         return (False, str(e))
 
-def run_p4cherry(p4_file: Path, command: str) -> tuple[bool, str]:
+def run_p4cherry(p4_file: Path, command: str) -> Tuple[bool, str]:
     """Run p4cherry command and return (success, output)."""
     try:
         # Use project root as cwd and pass relative paths to avoid spaces in absolute paths
@@ -80,8 +80,8 @@ def run_p4cherry(p4_file: Path, command: str) -> tuple[bool, str]:
     except Exception as e:
         return (False, str(e))
 
-def run(name: str, feature: dict[str, str],
-        output_file: Path, results: list[dict[str, str]]) -> None:
+def run(name: str, feature: Dict[str, str],
+        output_file: Path, results: List[Dict[str, str]]) -> None:
     # Run p4cherry parse
     parse_ok, parse_msg = run_p4cherry(output_file, "parse")
     # Run p4cherry typecheck (only if parse succeeded)
@@ -126,7 +126,7 @@ def main() -> None:
         print("Please build p4cherry first.")
         sys.exit(1)
 
-    results: list[dict[str, str]] = []
+    results: List[Dict[str, str]] = []
 
     for i, (name, feature) in enumerate(DECLARATION_FEATURES.items(), 1):
         print(f"[{i}/{len(DECLARATION_FEATURES)}] Testing {name}...", end=" ")
@@ -166,7 +166,7 @@ def main() -> None:
     print("-" * 80)
 
     for r in results:
-        print(f"{r['name']:<20} {r['grammar']:<34} {r['p4cherry-parse']:<8} {r['p4cherry-typecheck']:<10} {r['p4c-ebpf-compile']:<10}")
+        print(f"{r['name']:<20} {r['grammar']:<34} {r['p4cherry-parse']:<8} {r['p4cherry-typecheck']:<10} {r['p4c-compile']:<10}")
 
     # Print summary
     print("-" * 80)
@@ -178,7 +178,7 @@ def main() -> None:
 
     print(
         f"Total: {total} | Parse: {parse_pass}/{total} | "
-        f"Typecheck: {typecheck_pass}/{total} | Compile: {compile_pass}/{total} |"
+        f"Typecheck: {typecheck_pass}/{total} | Compile: {compile_pass}/{total} | "
         f"All: {all_pass}/{total}"
     )
 
@@ -190,7 +190,7 @@ def main() -> None:
             f.write(
                 f"{r['name']},{r['grammar']},"
                 f"{r['p4cherry-parse']},{r['p4cherry-typecheck']},{r['p4c-compile']},"
-                f"{r['p4cherry-parse_msg']}","{r['p4cherry-typecheck_msg']},{r['p4c-compile_msg']}\n"
+                f"{r['p4cherry-parse_msg']},{r['p4cherry-typecheck_msg']},{r['p4c-compile_msg']}\n"
             )
 
     print(f"\nResults saved to: {csv_file}")
