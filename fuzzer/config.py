@@ -3,6 +3,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).parent.parent
+P4C_EBPF = "p4c-ebpf"
 P4CHERRY_PATH = PROJECT_ROOT / "p4cherry" / "p4cherry"
 OUTPUT_DIR = PROJECT_ROOT / "output"
 # Prefer relative include dir (avoid spaces in absolute path breaking downstream tools)
