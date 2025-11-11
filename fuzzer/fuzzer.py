@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 import config
-from features import DECLARATION_FEATURES, STATEMENT_FEATURES
+from features import *
 from typing import List, Dict, Tuple
 
 def _has_error(text: str) -> bool:
@@ -128,11 +128,15 @@ def main() -> None:
 
     results: List[Dict[str, str]] = []
 
-    for i, (name, feature) in enumerate(DECLARATION_FEATURES.items(), 1):
-        print(f"[{i}/{len(DECLARATION_FEATURES)}] Testing {name}...", end=" ")
+    #
+    # Top-level declaration features
+    #
+
+    for i, (name, feature) in enumerate(TOPLEVEL_DECLARATION_FEATURES.items(), 1):
+        print(f"[{i}/{len(TOPLEVEL_DECLARATION_FEATURES)}] Testing {name}...", end=" ")
 
         # Generate P4 code
-        p4_code = config.DECLARATION_TEMPLATE.replace("/* DEF */", feature["def"]) 
+        p4_code = config.TOPLEVEL_DECLARATION_TEMPLATE.replace("/* DEF */", feature["def"]) 
         p4_code = p4_code.replace("/* USE_P */", feature["use_p"])
         p4_code = p4_code.replace("/* USE_C */", feature["use_c"])
 
@@ -144,11 +148,53 @@ def main() -> None:
         # Run test
         run(name, feature, output_file, results)
 
-    for i, (name, feature) in enumerate(STATEMENT_FEATURES.items(), 1):
-        print(f"[{i}/{len(STATEMENT_FEATURES)}] Testing {name}...", end=" ")
+    #
+    # Parser-level declaration features
+    #
+
+    for i, (name, feature) in enumerate(PARSER_DECLARATION_FEATURES.items(), 1):
+        print(f"[{i}/{len(PARSER_DECLARATION_FEATURES)}] Testing {name}...", end=" ")
 
         # Generate P4 code
-        p4_code = config.STATEMENT_TEMPLATE.replace("/* HOLE */", feature["code"]) 
+        p4_code = config.PARSER_DECLARATION_TEMPLATE.replace("/* DEF */", feature["def"]) 
+        p4_code = p4_code.replace("/* USE */", feature["use"])
+
+        # Save to file
+        output_file = config.OUTPUT_DIR / f"test_{name}.p4"
+        with open(output_file, "w") as f:
+            f.write(p4_code)
+        
+        # Run test
+        run(name, feature, output_file, results)
+
+    #
+    # Control-level declaration features
+    #
+
+    for i, (name, feature) in enumerate(CONTROL_DECLARATION_FEATURES.items(), 1):
+        print(f"[{i}/{len(CONTROL_DECLARATION_FEATURES)}] Testing {name}...", end=" ")
+
+        # Generate P4 code
+        p4_code = config.CONTROL_DECLARATION_TEMPLATE.replace("/* DEF */", feature["def"]) 
+        p4_code = p4_code.replace("/* USE */", feature["use"])
+
+        # Save to file
+        output_file = config.OUTPUT_DIR / f"test_{name}.p4"
+        with open(output_file, "w") as f:
+            f.write(p4_code)
+        
+        # Run test
+        run(name, feature, output_file, results)
+
+    #
+    # Control-level statement features
+    #
+
+    for i, (name, feature) in enumerate(CONTROL_STATEMENT_FEATURES.items(), 1):
+        print(f"[{i}/{len(CONTROL_STATEMENT_FEATURES)}] Testing {name}...", end=" ")
+
+        # Generate P4 code
+        p4_code = config.CONTROL_STATEMENT_TEMPLATE.replace("/* HOLE */", feature["code"]) 
 
         # Save to file
         output_file = config.OUTPUT_DIR / f"test_{name}.p4"

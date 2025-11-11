@@ -1,6 +1,6 @@
-"""P4 statement features to test."""
+"""P4 declaration features to test."""
 
-DECLARATION_FEATURES = {
+TOPLEVEL_DECLARATION_FEATURES = {
     # Constant declarations
     "const_simple": {
         "def": "const bit<8> BIT8_MAX = 255;",
@@ -183,7 +183,64 @@ DECLARATION_FEATURES = {
     },
 }
 
-STATEMENT_FEATURES = {
+PARSER_DECLARATION_FEATURES = {
+    # Constant declarations
+    "const_simple": {
+        "def": "const bit<8> BIT8_MAX = 255;",
+        "use": "bit<8> a = BIT8_MAX;",
+        "grammar": "constantDeclaration",
+    },
+    # Instantiations - no instantiable object in the eBPF architecture
+    # Variable declarations
+    "var_simple": {
+        "def": "bit<8> local_var = 8w10;",
+        "use": "local_var = local_var + 8w1;",
+        "grammar": "variableDeclaration",
+    },
+    # Value set declarations
+    "value_set_simple": {
+        "def": "value_set<bit<8>>(4) pvs;",
+        "use": "",
+        "grammar": "valueSetDeclaration",
+    },
+}
+
+CONTROL_DECLARATION_FEATURES = {
+    # Constant declarations
+    "const_simple": {
+        "def": "const bit<8> BIT8_MAX = 255;",
+        "use": "bit<8> a = BIT8_MAX;",
+        "grammar": "constantDeclaration",
+    },
+    # Action declarations
+    "action_simple": {
+        "def": "action set_to_one(inout bit<8> x) { x = 8w1; }",
+        "use": "set_to_one(counter);",
+        "grammar": "actionDeclaration",
+    },
+    # Table declarations
+    "table_simple": {
+        "def": """
+            table t {
+                actions = { Reject; }
+                default_action = Reject(true);
+            }
+        """,
+        "use": "t.apply();",
+        "grammar": "tableDeclaration",
+    },
+    # Instantiations - no instantiable object in the eBPF architecture
+    # Variable declarations
+    "var_simple": {
+        "def": "bit<8> local_var = 8w10;",
+        "use": "local_var = local_var + 8w1;",
+        "grammar": "variableDeclaration",
+    },
+}
+
+"""P4 statement features to test"""
+
+CONTROL_STATEMENT_FEATURES = {
     # Assignment statements
     "assign_simple": {
         "code": "counter = 8w42;",

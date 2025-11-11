@@ -15,12 +15,12 @@ control pipe(inout Headers_t headers, out bool pass) {
         pass = rej;
     }
 
-    action set_to_one(inout bit<8> x) { x = 8w1; }
+    bit<8> local_var = 8w10;
 
     apply {
         bool flag = true;
         bit<8> counter = 0;
-        set_to_one(counter);
+        local_var = local_var + 8w1;
         Reject(flag);
     }
 }
