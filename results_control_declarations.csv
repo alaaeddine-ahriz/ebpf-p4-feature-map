@@ -1,0 +1,5 @@
+Grammar,Variant,P4Cherry,P4C-eBPF,P4Cherry Error, P4C-eBPF Error
+constantDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
+actionDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
+tableDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
+variableDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
