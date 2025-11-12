@@ -1,32 +1,32 @@
 Grammar,Variant,P4Cherry,P4C-eBPF,P4Cherry Error, P4C-eBPF Error
-variableDeclaration,init,FAIL,FAIL,Error: File output/controlStmt_variableDeclaration_init.p4  line 40  characters 8-27 key already exists: counter,[Errno 2] No such file or directory: 'p4c-ebpf'
-variableDeclaration,non-init,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-constantDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-add,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-add.p4  line 40  characters 16-17 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-sub,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-sub.p4  line 40  characters 16-17 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-mul,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-mul.p4  line 40  characters 16-17 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-div,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-div.p4  line 40  characters 28-58 (reduce_senums_binary) cannot coerce types int<16> and int<16>,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-mod,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-mod.p4  line 40  characters 28-58 (reduce_senums_binary) cannot coerce types int<16> and int<16>,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-shl,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-shl.p4  line 40  characters 16-18 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-shr,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-shr.p4  line 40  characters 16-17 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-and,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-and.p4  line 40  characters 16-17 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-or,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-or.p4  line 40  characters 16-17 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,assign-xor,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-xor.p4  line 40  characters 16-17 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,call-momomorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-assignmentOrMethodCallStatement,call-polymorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-directApplication,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-conditionalStatement,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-conditionalStatement,else,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-conditionalStatement,nested,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-emptyStatement,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-blockStatement,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-blockStatement,nested,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-exitStatement,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-returnStatement,void,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-switchStatement,general-simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-switchStatement,general-fallthrough,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-forStatement,3-clause,FAIL,FAIL,Error: File output/controlStmt_forStatement_3-clause.p4  line 40  characters 13-16 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-forStatement,in,FAIL,FAIL,Error: File output/controlStmt_forStatement_in.p4  line 40  characters 13-16 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-breakStatement,simple,FAIL,FAIL,Error: File output/controlStmt_breakStatement_simple.p4  line 40  characters 13-16 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
-continueStatement,simple,FAIL,FAIL,Error: File output/controlStmt_continueStatement_simple.p4  line 40  characters 13-16 parser error,[Errno 2] No such file or directory: 'p4c-ebpf'
+variableDeclaration,init,FAIL,FAIL,Error: File output/controlStmt_variableDeclaration_init.p4  line 40  characters 8-27 key already exists: counter,output/controlStmt_variableDeclaration_init.p4(40): [--Werror=duplicate] error: Duplicate declaration of counter; previous at          bit<8> counter = 0;                ^^^^^^^ output/controlStmt_var
+variableDeclaration,non-init,PASS,PASS,,
+constantDeclaration,simple,PASS,PASS,,
+assignmentOrMethodCallStatement,assign-simple,PASS,PASS,,
+assignmentOrMethodCallStatement,assign-add,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-add.p4  line 40  characters 16-17 parser error,
+assignmentOrMethodCallStatement,assign-sub,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-sub.p4  line 40  characters 16-17 parser error,
+assignmentOrMethodCallStatement,assign-mul,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-mul.p4  line 40  characters 16-17 parser error,
+assignmentOrMethodCallStatement,assign-div,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-div.p4  line 40  characters 28-58 (reduce_senums_binary) cannot coerce types int<16> and int<16>,output/controlStmt_assignmentOrMethodCallStatement_assign-div.p4(6): [--Wwarn=unused] warning: 'f' is unused bit<8> f(inout bit<8> a) {        ^ output/controlStmt_assignmentOrMethodCallStatement_assi
+assignmentOrMethodCallStatement,assign-mod,FAIL,FAIL,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-mod.p4  line 40  characters 28-58 (reduce_senums_binary) cannot coerce types int<16> and int<16>,output/controlStmt_assignmentOrMethodCallStatement_assign-mod.p4(6): [--Wwarn=unused] warning: 'f' is unused bit<8> f(inout bit<8> a) {        ^ output/controlStmt_assignmentOrMethodCallStatement_assi
+assignmentOrMethodCallStatement,assign-shl,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-shl.p4  line 40  characters 16-18 parser error,
+assignmentOrMethodCallStatement,assign-shr,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-shr.p4  line 40  characters 16-17 parser error,
+assignmentOrMethodCallStatement,assign-and,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-and.p4  line 40  characters 16-17 parser error,
+assignmentOrMethodCallStatement,assign-or,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-or.p4  line 40  characters 16-17 parser error,
+assignmentOrMethodCallStatement,assign-xor,FAIL,PASS,Error: File output/controlStmt_assignmentOrMethodCallStatement_assign-xor.p4  line 40  characters 16-17 parser error,
+assignmentOrMethodCallStatement,call-momomorphic,PASS,PASS,,
+assignmentOrMethodCallStatement,call-polymorphic,PASS,PASS,,
+directApplication,simple,PASS,PASS,,
+conditionalStatement,simple,PASS,PASS,,
+conditionalStatement,else,PASS,PASS,,
+conditionalStatement,nested,PASS,PASS,,
+emptyStatement,simple,PASS,PASS,,
+blockStatement,simple,PASS,PASS,,
+blockStatement,nested,PASS,PASS,,
+exitStatement,simple,PASS,PASS,,
+returnStatement,void,PASS,PASS,,
+switchStatement,general-simple,PASS,FAIL,,output/controlStmt_switchStatement_general-simple.p4(6): [--Wwarn=unused] warning: 'f' is unused bit<8> f(inout bit<8> a) {        ^ output/controlStmt_switchStatement_general-simple.p4(11): [--Wwarn=
+switchStatement,general-fallthrough,PASS,FAIL,,output/controlStmt_switchStatement_general-fallthrough.p4(6): [--Wwarn=unused] warning: 'f' is unused bit<8> f(inout bit<8> a) {        ^ output/controlStmt_switchStatement_general-fallthrough.p4(11):
+forStatement,3-clause,FAIL,PASS,Error: File output/controlStmt_forStatement_3-clause.p4  line 40  characters 13-16 parser error,
+forStatement,in,FAIL,FAIL,Error: File output/controlStmt_forStatement_in.p4  line 40  characters 13-16 parser error,output/controlStmt_forStatement_in.p4(6): [--Wwarn=unused] warning: 'f' is unused bit<8> f(inout bit<8> a) {        ^ output/controlStmt_forStatement_in.p4(11): [--Wwarn=unused] warning: 'g' is unused
+breakStatement,simple,FAIL,PASS,Error: File output/controlStmt_breakStatement_simple.p4  line 40  characters 13-16 parser error,
+continueStatement,simple,FAIL,PASS,Error: File output/controlStmt_continueStatement_simple.p4  line 40  characters 13-16 parser error,

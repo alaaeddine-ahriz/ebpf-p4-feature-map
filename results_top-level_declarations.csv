@@ -1,21 +1,21 @@
 Grammar,Variant,P4Cherry,P4C-eBPF,P4Cherry Error, P4C-eBPF Error
-constantDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-actionDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-parserDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-controlDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-headerTypeDeclaration,monomorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-headerTypeDeclaration,polymorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-headerUnionTypeDeclaration,monomorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-headerUnionTypeDeclaration,polymorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-structTypeDeclaration,monomorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-structTypeDeclaration,polymorphic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-enumTypeDeclaration,non-serializable,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-enumTypeDeclaration,serializable,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typedefDeclaration,typedef-base,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typedefDeclaration,typedef-derived-header,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typedefDeclaration,typedef-derived-header-union,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typedefDeclaration,typedef-derived-struct,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typedefDeclaration,typedef-derived-enum,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typedefDeclaration,type,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-errorDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-functionDeclaration,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
+constantDeclaration,simple,PASS,PASS,,
+actionDeclaration,simple,PASS,PASS,,
+parserDeclaration,simple,PASS,PASS,,
+controlDeclaration,simple,PASS,PASS,,
+headerTypeDeclaration,monomorphic,PASS,PASS,,
+headerTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_headerTypeDeclaration_polymorphic.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_headerTypeDeclaration_polymor
+headerUnionTypeDeclaration,monomorphic,PASS,PASS,,
+headerUnionTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_headerUnionTypeDeclaration_polymorphic.p4(14): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_headerUnionTypeDeclarati
+structTypeDeclaration,monomorphic,PASS,PASS,,
+structTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_structTypeDeclaration_polymorphic.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_structTypeDeclaration_polymor
+enumTypeDeclaration,non-serializable,PASS,PASS,,
+enumTypeDeclaration,serializable,PASS,PASS,,
+typedefDeclaration,typedef-base,PASS,PASS,,
+typedefDeclaration,typedef-derived-header,PASS,PASS,,
+typedefDeclaration,typedef-derived-header-union,PASS,PASS,,
+typedefDeclaration,typedef-derived-struct,PASS,PASS,,
+typedefDeclaration,typedef-derived-enum,PASS,FAIL,,output/toplevelDecl_typedefDeclaration_typedef-derived-enum.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_typedefDeclaration_type
+typedefDeclaration,type,PASS,PASS,,
+errorDeclaration,simple,PASS,FAIL,,output/toplevelDecl_errorDeclaration_simple.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_errorDeclaration_simple.p4(11): [--Wwar
+functionDeclaration,simple,PASS,PASS,,

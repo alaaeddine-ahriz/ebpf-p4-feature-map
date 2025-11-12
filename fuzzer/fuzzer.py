@@ -37,7 +37,7 @@ def run_p4c(file: Path) -> Tuple[bool, str]:
         stdout = (result.stdout or "").strip()
         stderr = (result.stderr or "").strip()
         combined = (stderr + ("\n" if stderr and stdout else "") + stdout).strip()
-        success = not p4c_has_error(combined)
+        success = result.returncode == 0 and not p4c_has_error(combined)
         return (success, combined)
     except subprocess.TimeoutExpired:
         return (False, "TIMEOUT")
