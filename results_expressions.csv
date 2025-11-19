@@ -1,67 +1,67 @@
 Grammar,Variant,P4Cherry,P4C-eBPF,P4Cherry Error, P4C-eBPF Error
-INTEGER,arbitrary,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-INTEGER,fixed-signed,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-INTEGER,fixed-unsigned,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-DOTS,default,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-STRING_LITERAL,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-TRUE,true,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-FALSE,false,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-prefixedNonTypeName,dot-prefix,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-prefixedNonTypeName,no-prefix,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-indexAccessExpression,tuple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-indexAccessExpression,header-stack,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bitSliceExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedListExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedListExpression,trailing-comma,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedListExpression,dots,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedListExpression,dots-trailing-comma,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedListExpression,nested,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-invalidHeaderExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedKeyValueListExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedKeyValueListExpression,trailing-comma,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedKeyValueListExpression,dots,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedKeyValueListExpression,dots-trailing-comma,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-bracedKeyValueListExpression,nested,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-parenthesizedExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-parenthesizedExpression,nested,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-unaryExpression,logical-not,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-unaryExpression,bitwise-not,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-unaryExpression,negation,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-unaryExpression,plus,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typeAccessExpression,enum-non-serializable,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-typeAccessExpression,enum-serializable,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-errorAccessExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,header-stack-size,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,header-stack-lastIndex,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,header-stack-last,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,header-stack-next,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,struct,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,header,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,header-union,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-memberAccessExpression,table,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,mul,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,div,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,mod,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,add,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,sub,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,add-saturating,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,sub-saturating,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,shift-left,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,shift-right,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,le,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,ge,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,lt,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,gt,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,ne,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,eq,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,bitwise-and,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,bitwise-xor,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,bitwise-or,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,logical-and,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,logical-or,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,concat-integer,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-binaryExpression,concat-string,FAIL,FAIL,Error: File output/expr_binaryExpression_concat-string.p4  line 12  characters 27-40 (reduce_senums_binary) cannot coerce types string and string,[Errno 2] No such file or directory: 'p4c-ebpf'
-ternaryExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-callExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-callExpression,generic,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
-castExpression,simple,PASS,FAIL,,[Errno 2] No such file or directory: 'p4c-ebpf'
+INTEGER,arbitrary,PASS,PASS,,
+INTEGER,fixed-signed,PASS,PASS,,
+INTEGER,fixed-unsigned,PASS,PASS,,
+DOTS,default,PASS,FAIL,,output/expr_DOTS_default.p4(33): [--Werror=type-error] error: H1_t: cast not supported         f((H1_t) ...);            ^^^^
+STRING_LITERAL,simple,PASS,PASS,,
+TRUE,true,PASS,PASS,,
+FALSE,false,PASS,PASS,,
+prefixedNonTypeName,dot-prefix,PASS,PASS,,
+prefixedNonTypeName,no-prefix,PASS,PASS,,
+indexAccessExpression,tuple,PASS,PASS,,
+indexAccessExpression,header-stack,PASS,PASS,,
+bitSliceExpression,simple,PASS,PASS,,
+bracedListExpression,simple,PASS,PASS,,
+bracedListExpression,trailing-comma,PASS,PASS,,
+bracedListExpression,dots,PASS,PASS,,
+bracedListExpression,dots-trailing-comma,PASS,PASS,,
+bracedListExpression,nested,PASS,PASS,,
+invalidHeaderExpression,simple,PASS,PASS,,
+bracedKeyValueListExpression,simple,PASS,PASS,,
+bracedKeyValueListExpression,trailing-comma,PASS,PASS,,
+bracedKeyValueListExpression,dots,PASS,PASS,,
+bracedKeyValueListExpression,dots-trailing-comma,PASS,PASS,,
+bracedKeyValueListExpression,nested,PASS,PASS,,
+parenthesizedExpression,simple,PASS,PASS,,
+parenthesizedExpression,nested,PASS,PASS,,
+unaryExpression,logical-not,PASS,PASS,,
+unaryExpression,bitwise-not,PASS,PASS,,
+unaryExpression,negation,PASS,PASS,,
+unaryExpression,plus,PASS,PASS,,
+typeAccessExpression,enum-non-serializable,PASS,PASS,,
+typeAccessExpression,enum-serializable,PASS,FAIL,,output/expr_typeAccessExpression_enum-serializable.p4(12): [--Werror=target-error] error: Type E2_t not supported enum bit<8> E2_t { A = 1  B = 2  C = 3 }             ^^^^ In file: /home/ebpf-p4-featu
+errorAccessExpression,simple,PASS,PASS,,
+memberAccessExpression,header-stack-size,PASS,PASS,,
+memberAccessExpression,header-stack-lastIndex,PASS,PASS,,
+memberAccessExpression,header-stack-last,PASS,PASS,,
+memberAccessExpression,header-stack-next,PASS,PASS,,
+memberAccessExpression,struct,PASS,PASS,,
+memberAccessExpression,header,PASS,PASS,,
+memberAccessExpression,header-union,PASS,PASS,,
+memberAccessExpression,table,PASS,PASS,,
+binaryExpression,mul,PASS,PASS,,
+binaryExpression,div,PASS,PASS,,
+binaryExpression,mod,PASS,PASS,,
+binaryExpression,add,PASS,PASS,,
+binaryExpression,sub,PASS,PASS,,
+binaryExpression,add-saturating,PASS,PASS,,
+binaryExpression,sub-saturating,PASS,PASS,,
+binaryExpression,shift-left,PASS,PASS,,
+binaryExpression,shift-right,PASS,PASS,,
+binaryExpression,le,PASS,PASS,,
+binaryExpression,ge,PASS,PASS,,
+binaryExpression,lt,PASS,PASS,,
+binaryExpression,gt,PASS,PASS,,
+binaryExpression,ne,PASS,PASS,,
+binaryExpression,eq,PASS,PASS,,
+binaryExpression,bitwise-and,PASS,PASS,,
+binaryExpression,bitwise-xor,PASS,PASS,,
+binaryExpression,bitwise-or,PASS,PASS,,
+binaryExpression,logical-and,PASS,PASS,,
+binaryExpression,logical-or,PASS,PASS,,
+binaryExpression,concat-integer,PASS,PASS,,
+binaryExpression,concat-string,FAIL,PASS,Error: File output/expr_binaryExpression_concat-string.p4  line 12  characters 27-40 (reduce_senums_binary) cannot coerce types string and string,
+ternaryExpression,simple,PASS,PASS,,
+callExpression,simple,PASS,FAIL,,output/expr_callExpression_simple.p4(33): [--Wwarn=uninitialized-use] warning: local may be uninitialized         f(f(local));             ^^^^^ output/expr_callExpression_simple.p4(14): [--Werror=not
+callExpression,generic,PASS,FAIL,,output/expr_callExpression_generic.p4(33): [--Wwarn=uninitialized-use] warning: local may be uninitialized         f(f<bit<8>>(local));                     ^^^^^ output/expr_callExpression_generic.p4(
+castExpression,simple,PASS,PASS,,
