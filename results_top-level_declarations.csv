@@ -4,18 +4,18 @@ actionDeclaration,simple,PASS,PASS,,
 parserDeclaration,simple,PASS,PASS,,
 controlDeclaration,simple,PASS,PASS,,
 headerTypeDeclaration,monomorphic,PASS,PASS,,
-headerTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_headerTypeDeclaration_polymorphic.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_headerTypeDeclaration_polymor
+headerTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_headerTypeDeclaration_polymorphic.p4(11): [--Wwarn=invalid-header] warning: accessing a field of an invalid header h         H_t<bit<8>  bit<16>> h; h.field1 = 8w1; h.field2 = 16w2
 headerUnionTypeDeclaration,monomorphic,PASS,PASS,,
-headerUnionTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_headerUnionTypeDeclaration_polymorphic.p4(14): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_headerUnionTypeDeclarati
+headerUnionTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_headerUnionTypeDeclaration_polymorphic.p4(15): [--Wwarn=invalid-header] warning: accessing a field of an invalid header hu.h1         HU_t<bit<8>  bit<16>> hu; hu.h1.f1 = 8w1;     
 structTypeDeclaration,monomorphic,PASS,PASS,,
-structTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_structTypeDeclaration_polymorphic.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_structTypeDeclaration_polymor
+structTypeDeclaration,polymorphic,PASS,FAIL,,output/toplevelDecl_structTypeDeclaration_polymorphic.p4(6): [--Werror=target-error] error: Type T not supported struct S_t<T  U> { T a; U b; }            ^ In file: /home/ebpf-p4-feature-map/p4c/lib/
 enumTypeDeclaration,non-serializable,PASS,PASS,,
 enumTypeDeclaration,serializable,PASS,PASS,,
 typedefDeclaration,typedef-base,PASS,PASS,,
 typedefDeclaration,typedef-derived-header,PASS,PASS,,
 typedefDeclaration,typedef-derived-header-union,PASS,PASS,,
 typedefDeclaration,typedef-derived-struct,PASS,PASS,,
-typedefDeclaration,typedef-derived-enum,PASS,FAIL,,output/toplevelDecl_typedefDeclaration_typedef-derived-enum.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_typedefDeclaration_type
+typedefDeclaration,typedef-derived-enum,PASS,FAIL,,In file: /home/ebpf-p4-feature-map/p4c/build/ir/ir-generated.cpp:2928 Compiler Bug: /home/ebpf-p4-feature-map/p4c/build/ir/ir-generated.cpp:2928: Null type
 typedefDeclaration,type,PASS,PASS,,
-errorDeclaration,simple,PASS,FAIL,,output/toplevelDecl_errorDeclaration_simple.p4(10): [--Wwarn=unused] warning: 'tmp' is unused         bit<8> tmp = 0;         ^^^^^^^^^^^^^^ output/toplevelDecl_errorDeclaration_simple.p4(11): [--Wwar
+errorDeclaration,simple,PASS,PASS,,
 functionDeclaration,simple,PASS,PASS,,

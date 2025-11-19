@@ -11,6 +11,7 @@ from pathlib import Path
 import config
 from decls import *
 from stmts import *
+from expr import *
 from typing import List, Dict, Tuple
 
 def p4c_has_error(text: str) -> bool:
@@ -272,6 +273,36 @@ def fuzz_control_statements() -> None:
 
     output_results("Control Statements", results)
 
+def fuzz_expressions() -> None:
+    """Fuzz expression features."""
+
+    results: List[Dict[str, List[Dict[str, str]]]] = []
+
+    for grammar, variants in EXPRESSION_FEATURES.items():
+        output_files = []
+
+        for variant in variants:
+            name = variant["variant"]
+            p4_code = config.EXPRESSION_TEMPLATE.replace("/* DEF_G */", variant["def_g"])
+            p4_code = p4_code.replace("/* DEF_P */", variant["def_p"])
+            p4_code = p4_code.replace("/* USE_P */", variant["use_p"])
+            p4_code = p4_code.replace("/* DEF_C */", variant["def_c"])
+            p4_code = p4_code.replace("/* USE_C */", variant["use_c"])
+
+            output_file = config.OUTPUT_DIR / f"expr_{grammar}_{name}.p4"
+            with open(output_file, "w") as f:
+                f.write(p4_code)
+
+            output_files.append((name, output_file))
+
+        results_grammar = run_variants(grammar, output_files)
+        results.append({
+            "grammar": grammar,
+            "variants": results_grammar
+        })
+
+    output_results("Expressions", results)
+
 def main() -> None:
     """Run the fuzzer."""
     print("P4 eBPF Feature Fuzzer")
@@ -293,6 +324,7 @@ def main() -> None:
     fuzz_control_declarations()
     fuzz_parser_statements()
     fuzz_control_statements()
+    fuzz_expressions()
 
 if __name__ == "__main__":
     main()

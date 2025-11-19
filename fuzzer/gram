@@ -1,0 +1,51 @@
+expression
+    : INTEGER
+    | DOTS
+    | STRING_LITERAL
+    | TRUE
+    | FALSE
+    | THIS
+    | prefixedNonTypeName
+    | expression "[" expression "]"
+    | expression "[" expression ":" expression "]"
+    | expression "[" expression "+" ":" expression "]"
+    | "{" expressionList optTrailingComma "}"
+    | "{#}"
+    | "{" kvList optTrailingComma "}"
+    | "{" kvList "," DOTS optTrailingComma "}"
+    | "(" expression ")"
+    | "!" expression %prec PREFIX
+    | "~" expression %prec PREFIX
+    | "-" expression %prec PREFIX
+    | "+" expression %prec PREFIX
+    | typeName "." member
+    | ERROR "." member
+    | expression "." member
+    | expression "*" expression
+    | expression "/" expression
+    | expression "%" expression
+    | expression "+" expression
+    | expression "-" expression
+    | expression "|+|" expression
+    | expression "|-|" expression
+    | expression "<<" expression
+    | expression ">>" expression
+    | expression "<=" expression
+    | expression ">=" expression
+    | expression "<" expression
+    | expression ">" expression
+    | expression "!=" expression
+    | expression "==" expression
+    | expression "&" expression
+    | expression "^" expression
+    | expression "|" expression
+    | expression "++" expression
+    | expression "&&" expression
+    | expression "||" expression
+    | expression "?" expression ":" expression
+    | expression "<" realTypeArgumentList ">" "(" argumentList ")"
+    | expression "(" argumentList ")"
+    | namedType "(" argumentList ")"
+    | "(" typeRef ")" expression
+    ;
+

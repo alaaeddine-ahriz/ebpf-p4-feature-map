@@ -1,3 +1,6 @@
 [submodule "p4cherry"]
 	path = p4cherry
 	url = https://github.com/kaist-plrg/p4cherry
+[submodule "p4c"]
+	path = p4c
+	url = https://github.com/jaehyun1ee/p4c.git
