@@ -122,6 +122,29 @@ python3 -B fuzzer/fuzzer.py
 - CSV summary: `results.csv`
 - Detailed log : `ERROR_LOG.md`
 
+## Analyzing Results
+
+After running the fuzzer, use `analyze_results.py` to generate statistics on pass/fail rates:
+
+```bash
+# Analyze results in current directory (creates timestamped output file)
+python3 analyze_results.py .
+
+# Specify custom output filename
+python3 analyze_results.py . analysis.txt
+
+# Analyze results from a specific directory
+python3 analyze_results.py /path/to/results my_report.txt
+```
+
+The script generates:
+- **Per-section statistics** (control, parser, top-level, general)
+- **Per-category breakdown** (statements, declarations, expressions)
+- **Pass/fail percentages** for both P4Cherry and P4C-eBPF compilers
+- **Overall summary** across all test categories
+
+Output is displayed on console and saved to a text file with metadata (timestamp, source directory, file count).
+
 ## Quick recap: current unsupported items (p4cherry on eBPF)
 
 - Division and modulo: FAIL (even on `int<N>`). Use bitwise stand-ins for now:

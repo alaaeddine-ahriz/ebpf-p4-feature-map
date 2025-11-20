@@ -1,4 +1,4 @@
-Grammar,Variant,P4Cherry,P4C-eBPF,P4Cherry Error, P4C-eBPF Error
-constantDeclaration,simple,PASS,PASS,,
-variableDeclaration,simple,PASS,PASS,,
-valueSetDeclaration,simple,PASS,PASS,,
+Grammar            , Variant, P4Cherry, P4C-eBPF, P4Cherry Error, P4C-eBPF Error
+constantDeclaration, simple , PASS    , PASS    ,               , 
+variableDeclaration, simple , PASS    , PASS    ,               , 
+valueSetDeclaration, simple , PASS    , PASS    ,               , 
