@@ -1,0 +1,586 @@
+Found 27 test director(y|ies). Running tests...
+
+[action_call_ebpf]
+  P4: action_call_ebpf.p4
+    Pass action_call_ebpf.stf
+
+    Pass action_call_ebpf_1.stf
+
+  → 2/2 passed in this directory
+
+[action_call_table_ebpf]
+  P4: action_call_table_ebpf.p4
+    Pass action_call_table_ebpf.stf
+
+    Pass action_call_table_ebpf_1.stf
+
+  → 2/2 passed in this directory
+
+[advance_ebpf]
+  P4: advance_ebpf.p4
+    Pass advance_ebpf.stf
+
+    Pass advance_ebpf_1.stf
+
+    Pass advance_ebpf_2.stf
+
+    Pass advance_ebpf_3.stf
+
+    Pass advance_ebpf_4.stf
+
+  → 5/5 passed in this directory
+
+[bool_ebpf]
+  P4: bool_ebpf.p4
+    Pass bool_ebpf_1.stf
+
+  → 1/1 passed in this directory
+
+[calc-ebpf]
+  P4: calc-ebpf.p4
+    Fail calc-ebpf_1.stf (exit 1)
+      │ ERROR:Expected packets on port(s) dict_keys([0]) not received
+
+    Pass calc-ebpf_10.stf
+
+    Fail calc-ebpf_2.stf (exit 1)
+      │ ERROR:Expected packets on port(s) dict_keys([0]) not received
+
+    Fail calc-ebpf_3.stf (exit 1)
+      │ ERROR:Expected packets on port(s) dict_keys([0]) not received
+
+    Fail calc-ebpf_4.stf (exit 1)
+      │ ERROR:Expected packets on port(s) dict_keys([0]) not received
+
+    Fail calc-ebpf_5.stf (exit 1)
+      │ ERROR:Expected packets on port(s) dict_keys([0]) not received
+
+    Pass calc-ebpf_6.stf
+
+    Pass calc-ebpf_7.stf
+
+    Pass calc-ebpf_8.stf
+
+    Pass calc-ebpf_9.stf
+
+  → 5/10 passed in this directory
+
+[count_add_ebpf]
+  P4: count_add_ebpf.p4
+    Pass count_add_ebpf_1.stf
+
+    Pass count_add_ebpf_2.stf
+
+    Pass count_add_ebpf_3.stf
+
+    Pass count_add_ebpf_4.stf
+
+  → 4/4 passed in this directory
+
+[count_ebpf]
+  P4: count_ebpf.p4
+    Pass count_ebpf.stf
+
+    Pass count_ebpf_1.stf
+
+    Pass count_ebpf_2.stf
+
+    Pass count_ebpf_3.stf
+
+    Pass count_ebpf_4.stf
+
+  → 5/5 passed in this directory
+
+[hit_ebpf]
+  P4: hit_ebpf.p4
+    Pass hit_ebpf.stf
+
+    Pass hit_ebpf_1.stf
+
+    Pass hit_ebpf_2.stf
+
+    Pass hit_ebpf_3.stf
+
+    Pass hit_ebpf_4.stf
+
+    Pass hit_ebpf_5.stf
+
+    Pass hit_ebpf_6.stf
+
+  → 7/7 passed in this directory
+
+[init_ebpf]
+  P4: init_ebpf.p4
+    Pass init_ebpf_1.stf
+
+    Pass init_ebpf_2.stf
+
+    Pass init_ebpf_3.stf
+
+    Pass init_ebpf_4.stf
+
+  → 4/4 passed in this directory
+
+[issue2791_ebpf]
+  P4: issue2791_ebpf.p4
+    Pass issue2791_ebpf_1.stf
+
+    Fail issue2791_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpfcg1ubw7/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpfcg1ubw7/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpfcg1ubw7/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass issue2791_ebpf_3.stf
+
+    Pass issue2791_ebpf_4.stf
+
+    Pass issue2791_ebpf_5.stf
+
+    Pass issue2791_ebpf_6.stf
+
+  → 5/6 passed in this directory
+
+[issue2793_ebpf]
+  P4: issue2793_ebpf.p4
+    Pass issue2793_ebpf_1.stf
+
+    Pass issue2793_ebpf_10.stf
+
+    Fail issue2793_ebpf_2.stf (exit 1)
+      │ ERROR:Expected 0 packets on port 0 got 1
+
+    Pass issue2793_ebpf_3.stf
+
+    Pass issue2793_ebpf_4.stf
+
+    Pass issue2793_ebpf_5.stf
+
+    Pass issue2793_ebpf_6.stf
+
+    Pass issue2793_ebpf_7.stf
+
+    Fail issue2793_ebpf_8.stf (exit 1)
+      │ ERROR:Expected 0 packets on port 0 got 1
+
+    Pass issue2793_ebpf_9.stf
+
+  → 8/10 passed in this directory
+
+[issue2797_ebpf]
+  P4: issue2797_ebpf.p4
+    Pass issue2797_ebpf_1.stf
+
+    Pass issue2797_ebpf_2.stf
+
+  → 2/2 passed in this directory
+
+[issue2816-1_ebpf]
+  P4: issue2816-1_ebpf.p4
+    Pass issue2816-1_ebpf_1.stf
+
+    Pass issue2816-1_ebpf_2.stf
+
+    Pass issue2816-1_ebpf_3.stf
+
+    Pass issue2816-1_ebpf_4.stf
+
+    Pass issue2816-1_ebpf_5.stf
+
+    Pass issue2816-1_ebpf_6.stf
+
+  → 6/6 passed in this directory
+
+[issue2816_ebpf]
+  P4: issue2816_ebpf.p4
+    Fail issue2816_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmphgsl2tjt/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmphgsl2tjt/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmphgsl2tjt/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail issue2816_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmp86l1naej/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmp86l1naej/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmp86l1naej/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass issue2816_ebpf_3.stf
+
+    Pass issue2816_ebpf_4.stf
+
+    Pass issue2816_ebpf_5.stf
+
+  → 3/5 passed in this directory
+
+[issue870_ebpf]
+  P4: issue870_ebpf.p4
+    Pass issue870_ebpf.stf
+
+    Fail issue870_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpj94u7n_k/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpj94u7n_k/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpj94u7n_k/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail issue870_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpj1vv6lkt/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpj1vv6lkt/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpj1vv6lkt/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass issue870_ebpf_3.stf
+
+    Pass issue870_ebpf_4.stf
+
+    Pass issue870_ebpf_5.stf
+
+    Pass issue870_ebpf_6.stf
+
+  → 5/7 passed in this directory
+
+[key-issue-1020_ebpf]
+  P4: key-issue-1020_ebpf.p4
+    Pass key-issue-1020_ebpf.stf
+
+    Fail key-issue-1020_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmp963tcaww/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmp963tcaww/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmp963tcaww/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail key-issue-1020_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmp4o5gzgvw/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmp4o5gzgvw/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmp4o5gzgvw/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass key-issue-1020_ebpf_3.stf
+
+    Pass key-issue-1020_ebpf_4.stf
+
+    Pass key-issue-1020_ebpf_5.stf
+
+    Pass key-issue-1020_ebpf_6.stf
+
+  → 5/7 passed in this directory
+
+[key_ebpf]
+  P4: key_ebpf.p4
+    Pass key_ebpf.stf
+
+    Fail key_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmp_uehoi3l/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmp_uehoi3l/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmp_uehoi3l/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail key_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpxhwjrfgb/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpxhwjrfgb/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpxhwjrfgb/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass key_ebpf_3.stf
+
+    Pass key_ebpf_4.stf
+
+    Pass key_ebpf_5.stf
+
+    Pass key_ebpf_6.stf
+
+  → 5/7 passed in this directory
+
+[length_ebpf]
+  P4: length_ebpf.p4
+    Pass length_ebpf.stf
+
+    Pass length_ebpf_1.stf
+
+    Pass length_ebpf_2.stf
+
+  → 3/3 passed in this directory
+
+[lpm_ebpf]
+  P4: lpm_ebpf.p4
+    Fail lpm_ebpf.stf (exit 1)
+      │ ERROR:Expected 1 packets on port 0 got 3
+
+    Fail lpm_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmp4qjo9hw5/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmp4qjo9hw5/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmp4qjo9hw5/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail lpm_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpcrnqgfxe/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpcrnqgfxe/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpcrnqgfxe/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass lpm_ebpf_3.stf
+
+    Pass lpm_ebpf_4.stf
+
+    Pass lpm_ebpf_5.stf
+
+    Pass lpm_ebpf_6.stf
+
+  → 4/7 passed in this directory
+
+[stack_ebpf]
+  P4: stack_ebpf.p4
+    Fail stack_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpr4e8a3i9/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpr4e8a3i9/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpr4e8a3i9/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail stack_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpr78l1avc/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpr78l1avc/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpr78l1avc/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass stack_ebpf_3.stf
+
+    Pass stack_ebpf_4.stf
+
+    Pass stack_ebpf_5.stf
+
+    Pass stack_ebpf_6.stf
+
+    Pass stack_ebpf_7.stf
+
+  → 5/7 passed in this directory
+
+[switch_ebpf]
+  P4: switch_ebpf.p4
+    Pass switch_ebpf.stf
+
+    Fail switch_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmphpof3ddq/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmphpof3ddq/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmphpof3ddq/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail switch_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpr3zdxkc7/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpr3zdxkc7/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpr3zdxkc7/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass switch_ebpf_3.stf
+
+    Pass switch_ebpf_4.stf
+
+    Pass switch_ebpf_5.stf
+
+    Pass switch_ebpf_6.stf
+
+  → 5/7 passed in this directory
+
+[ternary_ebpf]
+  P4: ternary_ebpf.p4
+    Fail ternary_ebpf_1.stf (exit 2)
+      │ WARNING:   44 | void *bpf_map_lookup_elem(struct bpf_map *map, void *key, unsigned int key_size);
+      │ WARNING:      |       ^~~~~~~~~~~~~~~~~~~
+      │ WARNING:make: *** [runtime.mk:59: /p4c/tmp86ds73uo/build/test.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmp86ds73uo/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmp86ds73uo/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail ternary_ebpf_2.stf (exit 2)
+      │ WARNING:   44 | void *bpf_map_lookup_elem(struct bpf_map *map, void *key, unsigned int key_size);
+      │ WARNING:      |       ^~~~~~~~~~~~~~~~~~~
+      │ WARNING:make: *** [runtime.mk:59: /p4c/tmpxp0wdnrf/build/test.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpxp0wdnrf/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpxp0wdnrf/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail ternary_ebpf_3.stf (exit 2)
+      │ WARNING:   44 | void *bpf_map_lookup_elem(struct bpf_map *map, void *key, unsigned int key_size);
+      │ WARNING:      |       ^~~~~~~~~~~~~~~~~~~
+      │ WARNING:make: *** [runtime.mk:59: /p4c/tmpgf1nwrzj/build/test.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpgf1nwrzj/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpgf1nwrzj/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail ternary_ebpf_4.stf (exit 2)
+      │ WARNING:   44 | void *bpf_map_lookup_elem(struct bpf_map *map, void *key, unsigned int key_size);
+      │ WARNING:      |       ^~~~~~~~~~~~~~~~~~~
+      │ WARNING:make: *** [runtime.mk:59: /p4c/tmpmd4dew_r/build/test.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpmd4dew_r/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpmd4dew_r/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail ternary_ebpf_5.stf (exit 2)
+      │ WARNING:   44 | void *bpf_map_lookup_elem(struct bpf_map *map, void *key, unsigned int key_size);
+      │ WARNING:      |       ^~~~~~~~~~~~~~~~~~~
+      │ WARNING:make: *** [runtime.mk:59: /p4c/tmpl1601b8v/build/test.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpl1601b8v/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpl1601b8v/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail ternary_ebpf_6.stf (exit 2)
+      │ WARNING:   44 | void *bpf_map_lookup_elem(struct bpf_map *map, void *key, unsigned int key_size);
+      │ WARNING:      |       ^~~~~~~~~~~~~~~~~~~
+      │ WARNING:make: *** [runtime.mk:59: /p4c/tmpxuounyjk/build/test.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpxuounyjk/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpxuounyjk/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+  → 0/6 passed in this directory
+
+[test_ebpf]
+  P4: test_ebpf.p4
+    Pass test_ebpf.stf
+
+    Fail test_ebpf_1.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmpzgp_n6sy/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmpzgp_n6sy/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmpzgp_n6sy/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Fail test_ebpf_2.stf (exit 2)
+      │ WARNING:   99 |     registry_update_table_id(index, key, value, flags)
+      │ WARNING:      |                                          ^~~~~
+      │ WARNING:make: *** [runtime.mk:68: /p4c/tmp3z49egu5/build/ebpf_runtime.o] Error 1
+      │ ERROR:Error 2 when executing "make -f runtime.mk -C /p4c/backends/ebpf/runtime TARGET=test BPFOBJ=/p4c/tmp3z49egu5/test CFLAGS+=-DCONTROL_PLANE SOURCES+=/p4c/backends/ebpf/runtime/ebpf_registry.c SOURCES+=/p4c/backends/ebpf/runtime/ebpf_map.c SOURCES+=/p4c/tmp3z49egu5/test.c INCLUDES+=-I/p4c/backends/ebpf/runtime/contrib/libbpf/src".
+      │ ERROR:Failed to build the filter
+      │ ... (truncated)
+
+    Pass test_ebpf_3.stf
+
+    Pass test_ebpf_4.stf
+
+    Pass test_ebpf_5.stf
+
+    Pass test_ebpf_6.stf
+
+  → 5/7 passed in this directory
+
+[two_ebpf]
+  P4: two_ebpf.p4
+    Pass two_ebpf.stf
+
+    Pass two_ebpf_1.stf
+
+    Pass two_ebpf_10.stf
+
+    Fail two_ebpf_2.stf (exit 1)
+      │ ERROR:Expected 0 packets on port 0 got 1
+
+    Pass two_ebpf_3.stf
+
+    Pass two_ebpf_4.stf
+
+    Pass two_ebpf_5.stf
+
+    Pass two_ebpf_6.stf
+
+    Pass two_ebpf_7.stf
+
+    Pass two_ebpf_8.stf
+
+    Pass two_ebpf_9.stf
+
+  → 10/11 passed in this directory
+
+[valid_ebpf]
+  P4: valid_ebpf.p4
+    Pass valid_ebpf.stf
+
+    Pass valid_ebpf_1.stf
+
+    Pass valid_ebpf_2.stf
+
+    Pass valid_ebpf_3.stf
+
+    Pass valid_ebpf_4.stf
+
+  → 5/5 passed in this directory
+
+[value_set_ebpf]
+  P4: value_set_ebpf.p4
+    Pass value_set_ebpf_1.stf
+
+  → 1/1 passed in this directory
+
+[verify_ebpf]
+  P4: verify_ebpf.p4
+    Pass verify_ebpf.stf
+
+    Pass verify_ebpf_1.stf
+
+    Pass verify_ebpf_2.stf
+
+  → 3/3 passed in this directory
+
+==========================================================================================
+FINAL TEST SUMMARY
+==========================================================================================
+Directory                        Passed F-compile F-runtime F-compare    Total       Rate
+------------------------------------------------------------------------------------------
+action_call_ebpf                      2        0        0        0        2     100.0%
+action_call_table_ebpf                2        0        0        0        2     100.0%
+advance_ebpf                          5        0        0        0        5     100.0%
+bool_ebpf                             1        0        0        0        1     100.0%
+calc-ebpf                             5        0        0        5       10      50.0%
+count_add_ebpf                        4        0        0        0        4     100.0%
+count_ebpf                            5        0        0        0        5     100.0%
+hit_ebpf                              7        0        0        0        7     100.0%
+init_ebpf                             4        0        0        0        4     100.0%
+issue2791_ebpf                        5        1        0        0        6      83.3%
+issue2793_ebpf                        8        0        0        2       10      80.0%
+issue2797_ebpf                        2        0        0        0        2     100.0%
+issue2816-1_ebpf                      6        0        0        0        6     100.0%
+issue2816_ebpf                        3        2        0        0        5      60.0%
+issue870_ebpf                         5        2        0        0        7      71.4%
+key-issue-1020_ebpf                   5        2        0        0        7      71.4%
+key_ebpf                              5        2        0        0        7      71.4%
+length_ebpf                           3        0        0        0        3     100.0%
+lpm_ebpf                              4        2        0        1        7      57.1%
+stack_ebpf                            5        2        0        0        7      71.4%
+switch_ebpf                           5        2        0        0        7      71.4%
+ternary_ebpf                          0        6        0        0        6       0.0%
+test_ebpf                             5        2        0        0        7      71.4%
+two_ebpf                             10        0        0        1       11      90.9%
+valid_ebpf                            5        0        0        0        5     100.0%
+value_set_ebpf                        1        0        0        0        1     100.0%
+verify_ebpf                           3        0        0        0        3     100.0%
+------------------------------------------------------------------------------------------
+OVERALL                             115       23        0        9      147      78.2%
+==========================================================================================
