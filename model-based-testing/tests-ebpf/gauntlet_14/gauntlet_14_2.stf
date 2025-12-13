@@ -1,0 +1,36 @@
+# p4testgen seed: none
+# Date generated: 2025-12-13-06:17:24.018
+# Current node coverage: 0
+# Traces
+# [P4Testgen MethodCall]: *.copy_in("prs");
+# [Parser] prs
+# [State] start
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.eth_hdr);
+# [ExtractSuccess] hdr.eth_hdr@0 | Condition: |*packetLen_bits(bit<32>)| >= 24; | Extract Size: 24 -> hdr.eth_hdr.dst_addr = 0x00 | hdr.eth_hdr.src_addr = 0x00 | hdr.eth_hdr.eth_type = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.cont);
+# [ExtractSuccess] hdr.cont@24 | Condition: |*packetLen_bits(bit<32>)| >= 32; | Extract Size: 8 -> hdr.cont.sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[0]);
+# [ExtractSuccess] hdr.busi[32w0]@32 | Condition: |*packetLen_bits(bit<32>)| >= 40; | Extract Size: 8 -> hdr.busi[32w0].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[1]);
+# [ExtractSuccess] hdr.busi[32w1]@40 | Condition: |*packetLen_bits(bit<32>)| >= 48; | Extract Size: 8 -> hdr.busi[32w1].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[2]);
+# [ExtractSuccess] hdr.busi[32w2]@48 | Condition: |*packetLen_bits(bit<32>)| >= 56; | Extract Size: 8 -> hdr.busi[32w2].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[3]);
+# [ExtractSuccess] hdr.busi[32w3]@56 | Condition: |*packetLen_bits(bit<32>)| >= 64; | Extract Size: 8 -> hdr.busi[32w3].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[4]);
+# [ExtractSuccess] hdr.busi[32w4]@64 | Condition: |*packetLen_bits(bit<32>)| >= 72; | Extract Size: 8 -> hdr.busi[32w4].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[5]);
+# [ExtractSuccess] hdr.busi[32w5]@72 | Condition: |*packetLen_bits(bit<32>)| >= 80; | Extract Size: 8 -> hdr.busi[32w5].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[6]);
+# [ExtractSuccess] hdr.busi[32w6]@80 | Condition: |*packetLen_bits(bit<32>)| >= 88; | Extract Size: 8 -> hdr.busi[32w6].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.busi[7]);
+# [ExtractSuccess] hdr.busi[32w7]@88 | Condition: |*packetLen_bits(bit<32>)| >= 96; | Extract Size: 8 -> hdr.busi[32w7].sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.onli);
+# [ExtractSuccess] hdr.onli@96 | Condition: |*packetLen_bits(bit<32>)| >= 104; | Extract Size: 8 -> hdr.onli.sear = 0x00
+# [MethodCall]: pkt.extract<aboutS>(hdr.firs);
+# [ExtractFailure] hdr.firs@104 | Condition: !(|*packetLen_bits(bit<32>)| >= 112); | Extract Size: 8
+# [P4Testgen MethodCall]: *.drop_and_exit();
+# [Packet marked dropped]
+
+
+packet 0 00000000000000000000000000

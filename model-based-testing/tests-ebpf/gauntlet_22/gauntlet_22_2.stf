@@ -1,0 +1,38 @@
+# p4testgen seed: none
+# Date generated: 2025-12-13-06:29:23.194
+# Current node coverage: 0
+# Traces
+# [P4Testgen MethodCall]: *.copy_in("prs");
+# [Parser] prs
+# [State] start
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.eth_hdr);
+# [ExtractSuccess] hdr.eth_hdr@0 | Condition: |*packetLen_bits(bit<32>)| >= 24; | Extract Size: 24 -> hdr.eth_hdr.dst_addr = 0x00 | hdr.eth_hdr.src_addr = 0x00 | hdr.eth_hdr.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs);
+# [ExtractSuccess] hdr.firs@24 | Condition: |*packetLen_bits(bit<32>)| >= 48; | Extract Size: 24 -> hdr.firs.dst_addr = 0x00 | hdr.firs.src_addr = 0x00 | hdr.firs.eth_type = 0x00
+# [MethodCall]: pkt.extract<thereW>(hdr.woul);
+# [ExtractSuccess] hdr.woul@48 | Condition: |*packetLen_bits(bit<32>)| >= 72; | Extract Size: 24 -> hdr.woul.cont = 0x00 | hdr.woul.busi = 0x00 | hdr.woul.onli = 0x0 | hdr.woul.padding = 0x0
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.serv);
+# [ExtractSuccess] hdr.serv@72 | Condition: |*packetLen_bits(bit<32>)| >= 96; | Extract Size: 24 -> hdr.serv.dst_addr = 0x00 | hdr.serv.src_addr = 0x00 | hdr.serv.eth_type = 0x00
+# [MethodCall]: pkt.extract<thereW>(hdr.thes);
+# [ExtractSuccess] hdr.thes@96 | Condition: |*packetLen_bits(bit<32>)| >= 120; | Extract Size: 24 -> hdr.thes.cont = 0x00 | hdr.thes.busi = 0x00 | hdr.thes.onli = 0x0 | hdr.thes.padding = 0x0
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.clic);
+# [ExtractSuccess] hdr.clic@120 | Condition: |*packetLen_bits(bit<32>)| >= 144; | Extract Size: 24 -> hdr.clic.dst_addr = 0x00 | hdr.clic.src_addr = 0x00 | hdr.clic.eth_type = 0x00
+# [State] accept
+# [P4Testgen MethodCall]: *.copy_out("prs");
+# [P4Testgen MethodCall]: *.copy_in("pipe");
+# [Control pipe start]
+# [AssignmentStatement]: hdr.thes.onli * 4w10 : exact @name("system");| Computed: key_0 = 0;
+# [AssignmentStatement]: ((bit<5>)hdr.clic.src_addr - -6w48[4:0])[3:0]: exact @name("policy");| Computed: key_1 = 0;
+# [MethodCall]: please_0/please.apply();
+# [Table Branch: pipe.please Choosing default action: NoAction_1/NoAction;]
+# [P4Testgen MethodCall]: NoAction_1/NoAction();
+# [AssignmentStatement]: hdr.thes.busi = 12 | 12;| Computed: hdr.thes.busi = 12;
+# [AssignmentStatement]: hdr.woul.onli = hdr.thes.padding;| Computed: hdr.woul.onli = 0;
+# [AssignmentStatement]: pass = !true;| Computed: pass = false;
+# [P4Testgen MethodCall]: *.copy_out("pipe");
+# [P4Testgen If Statement]: Condition: !false; Result: true
+# [P4Testgen MethodCall]: *.drop_and_exit();
+# [Packet marked dropped]
+
+
+packet 0 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

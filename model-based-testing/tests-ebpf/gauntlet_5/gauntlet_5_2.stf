@@ -1,0 +1,33 @@
+# p4testgen seed: none
+# Date generated: 2025-12-13-03:30:11.271
+# Current node coverage: 0
+# Traces
+# [P4Testgen MethodCall]: *.copy_in("prs");
+# [Parser] prs
+# [State] start
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.eth_hdr);
+# [ExtractSuccess] hdr.eth_hdr@0 | Condition: |*packetLen_bits(bit<32>)| >= 24; | Extract Size: 24 -> hdr.eth_hdr.dst_addr = 0x00 | hdr.eth_hdr.src_addr = 0x00 | hdr.eth_hdr.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.thei);
+# [ExtractSuccess] hdr.thei@24 | Condition: |*packetLen_bits(bit<32>)| >= 48; | Extract Size: 24 -> hdr.thei.dst_addr = 0x00 | hdr.thei.src_addr = 0x00 | hdr.thei.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.ther);
+# [ExtractSuccess] hdr.ther@48 | Condition: |*packetLen_bits(bit<32>)| >= 72; | Extract Size: 24 -> hdr.ther.dst_addr = 0x00 | hdr.ther.src_addr = 0x00 | hdr.ther.eth_type = 0x00
+# [State] accept
+# [P4Testgen MethodCall]: *.copy_out("prs");
+# [P4Testgen MethodCall]: *.copy_in("pipe");
+# [Control pipe start]
+# [MethodCall]: contac_0/contac.setValid();
+# [AssignmentStatement]: ethernet_t contac = { hdr.ther.eth_type + 6, 8w167, -(true ? 86 + ((bit<8>)8w48)[7:0] : 8w203) };| Computed: contac_0/contac.dst_addr = 6;
+# [AssignmentStatement]: ethernet_t contac = { hdr.ther.eth_type + 6, 8w167, -(true ? 86 + ((bit<8>)8w48)[7:0] : 8w203) };| Computed: contac_0/contac.src_addr = 167;
+# [AssignmentStatement]: ethernet_t contac = { hdr.ther.eth_type + 6, 8w167, -(true ? 86 + ((bit<8>)8w48)[7:0] : 8w203) };| Computed: contac_0/contac.eth_type = 122;
+# [MethodCall]: theseU_0/theseU.apply();
+# [Table Branch: pipe.theseU Choosing default action: NoAction_1/NoAction;]
+# [P4Testgen MethodCall]: NoAction_1/NoAction();
+# [AssignmentStatement]: hdr.eth_hdr.src_addr = 8w70;| Computed: hdr.eth_hdr.src_addr = 70;
+# [AssignmentStatement]: hdr.ther.src_addr = 8w50;| Computed: hdr.ther.src_addr = 50;
+# [AssignmentStatement]: pass = !((bit<5>)contac.src_addr ^ 5w0 == (bit<5>)hdr.ther.dst_addr);| Computed: pass = true;
+# [P4Testgen MethodCall]: *.copy_out("pipe");
+# [P4Testgen If Statement]: Condition: !(7 != (bit<5>)|pktvar_6(bit<8>)|); Result: false
+
+
+packet 0 000000000000000000000000000000000000000000000000
+expect 0 000000000000000000000000000000000000000000000000

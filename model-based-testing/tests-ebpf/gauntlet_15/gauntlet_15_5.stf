@@ -1,0 +1,32 @@
+# p4testgen seed: none
+# Date generated: 2025-12-13-06:18:29.461
+# Current node coverage: 0
+# Traces
+# [P4Testgen MethodCall]: *.copy_in("prs");
+# [Parser] prs
+# [State] start
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.eth_hdr);
+# [ExtractSuccess] hdr.eth_hdr@0 | Condition: |*packetLen_bits(bit<32>)| >= 24; | Extract Size: 24 -> hdr.eth_hdr.dst_addr = 0x00 | hdr.eth_hdr.src_addr = 0x00 | hdr.eth_hdr.eth_type = 0x00
+# [MethodCall]: pkt.extract<contac>(hdr.onli);
+# [ExtractSuccess] hdr.onli@24 | Condition: |*packetLen_bits(bit<32>)| >= 32; | Extract Size: 8 -> hdr.onli.busi = 0x0 | hdr.onli.padding = 0x0
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[0]);
+# [ExtractSuccess] hdr.firs[32w0]@32 | Condition: |*packetLen_bits(bit<32>)| >= 56; | Extract Size: 24 -> hdr.firs[32w0].dst_addr = 0x00 | hdr.firs[32w0].src_addr = 0x00 | hdr.firs[32w0].eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[1]);
+# [ExtractSuccess] hdr.firs[32w1]@56 | Condition: |*packetLen_bits(bit<32>)| >= 80; | Extract Size: 24 -> hdr.firs[32w1].dst_addr = 0x00 | hdr.firs[32w1].src_addr = 0x00 | hdr.firs[32w1].eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[2]);
+# [ExtractSuccess] hdr.firs[32w2]@80 | Condition: |*packetLen_bits(bit<32>)| >= 104; | Extract Size: 24 -> hdr.firs[32w2].dst_addr = 0x00 | hdr.firs[32w2].src_addr = 0x00 | hdr.firs[32w2].eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[3]);
+# [ExtractSuccess] hdr.firs[32w3]@104 | Condition: |*packetLen_bits(bit<32>)| >= 128; | Extract Size: 24 -> hdr.firs[32w3].dst_addr = 0x00 | hdr.firs[32w3].src_addr = 0x00 | hdr.firs[32w3].eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[4]);
+# [ExtractSuccess] hdr.firs[32w4]@128 | Condition: |*packetLen_bits(bit<32>)| >= 152; | Extract Size: 24 -> hdr.firs[32w4].dst_addr = 0x00 | hdr.firs[32w4].src_addr = 0x00 | hdr.firs[32w4].eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[5]);
+# [ExtractSuccess] hdr.firs[32w5]@152 | Condition: |*packetLen_bits(bit<32>)| >= 176; | Extract Size: 24 -> hdr.firs[32w5].dst_addr = 0x00 | hdr.firs[32w5].src_addr = 0x00 | hdr.firs[32w5].eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[6]);
+# [ExtractSuccess] hdr.firs[32w6]@176 | Condition: |*packetLen_bits(bit<32>)| >= 200; | Extract Size: 24 -> hdr.firs[32w6].dst_addr = 0x00 | hdr.firs[32w6].src_addr = 0x00 | hdr.firs[32w6].eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.firs[7]);
+# [ExtractFailure] hdr.firs[32w7]@200 | Condition: !(|*packetLen_bits(bit<32>)| >= 224); | Extract Size: 24
+# [P4Testgen MethodCall]: *.drop_and_exit();
+# [Packet marked dropped]
+
+
+packet 0 00000000000000000000000000000000000000000000000000

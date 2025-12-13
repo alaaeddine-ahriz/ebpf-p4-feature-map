@@ -1,0 +1,34 @@
+# p4testgen seed: none
+# Date generated: 2025-12-13-03:27:02.997
+# Current node coverage: 0
+# Traces
+# [P4Testgen MethodCall]: *.copy_in("prs");
+# [Parser] prs
+# [State] start
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.eth_hdr);
+# [ExtractSuccess] hdr.eth_hdr@0 | Condition: |*packetLen_bits(bit<32>)| >= 24; | Extract Size: 24 -> hdr.eth_hdr.dst_addr = 0x00 | hdr.eth_hdr.src_addr = 0x00 | hdr.eth_hdr.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.othe);
+# [ExtractSuccess] hdr.othe@24 | Condition: |*packetLen_bits(bit<32>)| >= 48; | Extract Size: 24 -> hdr.othe.dst_addr = 0x00 | hdr.othe.src_addr = 0x00 | hdr.othe.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.whic);
+# [ExtractSuccess] hdr.whic@48 | Condition: |*packetLen_bits(bit<32>)| >= 72; | Extract Size: 24 -> hdr.whic.dst_addr = 0x00 | hdr.whic.src_addr = 0x00 | hdr.whic.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.thei);
+# [ExtractSuccess] hdr.thei@72 | Condition: |*packetLen_bits(bit<32>)| >= 96; | Extract Size: 24 -> hdr.thei.dst_addr = 0x00 | hdr.thei.src_addr = 0x00 | hdr.thei.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.ther);
+# [ExtractSuccess] hdr.ther@96 | Condition: |*packetLen_bits(bit<32>)| >= 120; | Extract Size: 24 -> hdr.ther.dst_addr = 0x00 | hdr.ther.src_addr = 0x00 | hdr.ther.eth_type = 0x00
+# [MethodCall]: pkt.extract<ethernet_t>(hdr.cont);
+# [ExtractSuccess] hdr.cont@120 | Condition: |*packetLen_bits(bit<32>)| >= 144; | Extract Size: 24 -> hdr.cont.dst_addr = 0x00 | hdr.cont.src_addr = 0x00 | hdr.cont.eth_type = 0x00
+# [State] accept
+# [P4Testgen MethodCall]: *.copy_out("prs");
+# [P4Testgen MethodCall]: *.copy_in("pipe");
+# [Control pipe start]
+# [AssignmentStatement]: hdr.thei.src_addr = 8w245;| Computed: hdr.thei.src_addr = 245;
+# [MethodCall]: onlin();
+# [AssignmentStatement]: hdr.cont.src_addr = hdr.whic.src_addr;| Computed: hdr.cont.src_addr = 0;
+# [AssignmentStatement]: pass = true || (true || false);| Computed: pass = true;
+# [AssignmentStatement]: pass = pass;| Computed: pass = true;
+# [P4Testgen MethodCall]: *.copy_out("pipe");
+# [P4Testgen If Statement]: Condition: !true; Result: false
+
+
+packet 0 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+expect 0 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
